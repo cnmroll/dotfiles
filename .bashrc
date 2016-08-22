@@ -1,0 +1,8 @@
+alias ctags="`brew --prefix`/bin/ctags"
+alias vR="vim $HOME/.vimrc"
+alias vBP="vim $HOME/.bash_profile"
+alias vBR="vim $HOME/.bashrc"
+alias phg="phpenv global"
+alias phl="phpenv local"
+alias phi="phpenv install"
+alias phu="phpenv uninstall"
