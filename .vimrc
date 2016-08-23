@@ -1,51 +1,87 @@
 " vim include
 source $VIMRUNTIME/macros/matchit.vim
 
-" NeoBundle Start!
-filetype off
-if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim
-	call neobundle#begin(expand('~/.vim/bundle/'))
+augroup PluginInstall
+	autocmd!
+	autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+augroup END
+
+" plugin install directory
+let s:plugin_dir = expand('~/.vim/bundle/')
+" dein.vimをインストールするディレクトリをランタイムパスへ追加
+let s:dein_dir = s:plugin_dir . 'repos/github.com/Shougo/dein.vim'
+execute 'set runtimepath+=' . s:dein_dir
+
+" dein.vimがなければinstall`
+if !isdirectory(s:dein_dir)
+	call mkdir(s:dein_dir, 'p')
+	silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_dir)
 endif
 
-NeoBundle 'ujihisa/unite-colorscheme' " colorscheme一覧 :Unite -auto-preview colorscheme
-NeoBundle 'scrooloose/syntastic' " シンタックスエラーチェック
-NeoBundle 'https://github.com/tpope/vim-endwise' " ruby end auto
-NeoBundle 'nanotech/jellybeans.vim' " jellybeans colorscheme
-NeoBundle 'scrooloose/nerdtree' " tree file
-NeoBundle 'tpope/vim-rails' " rails extension
-NeoBundle 'tomtom/tcomment_vim' " ファイルタイプ別自動コメント
-NeoBundle 'nathanaelkane/vim-indent-guides' " indent可視化
-NeoBundle 'bronson/vim-trailing-whitespace' " 文末のスペース検出
-NeoBundle 'Shougo/unite.vim' " 統合ユーザインタフェース
-NeoBundle 'ujihisa/unite-colorscheme' " color scheme list
-NeoBundle 'tell-k/vim-browsereload-mac' " ブラウザ自動更新
-NeoBundle 'tpope/vim-surround' " 指定文字で囲む
-NeoBundle 'othree/html5.vim' " html5 色
-NeoBundle 'kana/vim-textobj-user' " original テキストオブジェクト追加
-NeoBundle 'kana/vim-textobj-entire' " 全体を表すテキストオブジェクトの追加
-NeoBundle 'LeafCage/yankround.vim' " yank 管理
-NeoBundle 'itchyny/lightline.vim' " ステータスライン強化
-NeoBundle 'hail2u/vim-css3-syntax' " css3 色
-NeoBundle 'jelera/vim-javascript-syntax' " js 色
-NeoBundle 'AtsushiM/sass-compile.vim' " sass -> css 自動コンパイル
-NeoBundle 'mattn/emmet-vim' " html簡略化
+if dein#load_state(s:plugin_dir)
+	call dein#begin(s:plugin_dir)
 
-NeoBundle 'AndrewRadev/switch.vim' " 該当単語をトグル
-NeoBundle 'slim-template/vim-slim' " slim syntax highlight
+	call dein#add('Shougo/dein.vim') " プラグイン管理
 
-NeoBundle 'Shougo/neocomplete.vim' " 補完
-NeoBundle 'violetyk/neocomplete-php.vim' " neocomplete snippet php 日本語
-" neocomplete snippets
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'ujihisa/neco-look' " neocomplete に英単語候補表示
-NeoBundle 'Shougo/context_filetype.vim' " カレント行のfiletype検出
-NeoBundle 'vim-scripts/smarty-syntax' " smarty syntax highlight
-NeoBundle 'Shougo/neomru.vim' " 最近開いたファイルの一覧表示 :Unite file_mru
+	call dein#add('Shougo/unite.vim') " 統合ユーザインタフェース
+	call dein#add('ujihisa/unite-colorscheme', {
+				\	'depends' : 'Shougo/unite.vim'
+				\}) " colorscheme一覧 :Unite -auto-preview colorscheme
+	call dein#add('Shougo/neomru.vim', {
+				\	'depends' : 'Shougo/unite.vim'
+				\}) " 最近開いたファイルの一覧表示 :Unite file_mru
 
-call neobundle#end()
-NeoBundleCheck
+	" neocomplete
+	call dein#add('Shougo/neocomplete.vim', {
+				\ 'if' : has('lua')
+				\ }) " 補完
+	call dein#add('violetyk/neocomplete-php.vim', {
+				\ 'depends' : 'Shougo/neocomplete.vim'
+				\ }) " neocomplete snippet php 日本語
+	call dein#add('Shougo/neosnippet', {
+				\ 'depends' : 'Shougo/neocomplete.vim'
+				\ })
+	call dein#add('Shougo/neosnippet-snippets', {
+				\ 'depends' : 'Shougo/neocomplete.vim'
+				\ })
+	call dein#add('ujihisa/neco-look') " 英単語候補追加
+
+	" Ruby on Rails
+	call dein#add('tpope/vim-rails') " rails extension
+	call dein#add('https://github.com/tpope/vim-endwise') " ruby end auto
+
+	" HTML, CSS, SCSS
+	call dein#add('AtsushiM/sass-compile.vim') " sass -> css 自動コンパイル
+	call dein#add('mattn/emmet-vim') " html簡略化
+	call dein#add('tell-k/vim-browsereload-mac') " ブラウザ自動更新
+
+	" syntax highlight
+	call dein#add('slim-template/vim-slim') " slim syntax highlight
+	call dein#add('hail2u/vim-css3-syntax') " css3 色
+	call dein#add('jelera/vim-javascript-syntax') " js 色
+	call dein#add('vim-scripts/smarty-syntax', {'on_ft' : 'php'}) " smarty syntax highlight
+	call dein#add('othree/html5.vim') " html5 色
+
+	" colorscheme
+	call dein#add('nanotech/jellybeans.vim') " jellybeans colorscheme
+
+	" vim拡張
+	call dein#add('kana/vim-textobj-user') " original テキストオブジェクト追加
+	call dein#add('kana/vim-textobj-entire') " 全体を表すテキストオブジェクトの追加
+	call dein#add('LeafCage/yankround.vim') " yank 管理
+	call dein#add('itchyny/lightline.vim') " ステータスライン強化
+	call dein#add('Shougo/context_filetype.vim') " カレント行のfiletype検出
+	call dein#add('nathanaelkane/vim-indent-guides') " indent可視化
+	call dein#add('bronson/vim-trailing-whitespace') " 文末のスペース検出
+	call dein#add('scrooloose/nerdtree') " tree file
+
+	call dein#add('scrooloose/syntastic') " シンタックスエラーチェック
+	call dein#add('tpope/vim-surround') " 指定文字で囲む
+	call dein#add('AndrewRadev/switch.vim') " 該当単語をトグル
+
+	call dein#end()
+	call dein#save_state()
+endif
 
 runtime! userautoload/init/*.vim
 runtime! userautoload/plugins/*.vim
