@@ -20,3 +20,9 @@ set backspace=indent,eol,start " 行頭、改行、手前の文字削除
 colorscheme jellybeans
 filetype plugin indent on
 syntax on
+
+" autocmd QuickFixCmdPost *grep* cwindow
+augroup QuickFixCmd
+  autocmd!
+  autocmd QuickFixCmdPost *grep* cwindow
+augroup END

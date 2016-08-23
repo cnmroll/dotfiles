@@ -1,11 +1,8 @@
-" filetype off
-filetype plugin indent off
-
 " vim include
 source $VIMRUNTIME/macros/matchit.vim
 
 " NeoBundle Start!
-" filetype off
+filetype off
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim
 	call neobundle#begin(expand('~/.vim/bundle/'))
@@ -46,9 +43,9 @@ NeoBundle 'ujihisa/neco-look' " neocomplete に英単語候補表示
 NeoBundle 'Shougo/context_filetype.vim' " カレント行のfiletype検出
 NeoBundle 'vim-scripts/smarty-syntax' " smarty syntax highlight
 NeoBundle 'Shougo/neomru.vim' " 最近開いたファイルの一覧表示 :Unite file_mru
+
 call neobundle#end()
 NeoBundleCheck
 
 runtime! userautoload/init/*.vim
 runtime! userautoload/plugins/*.vim
-" imap <expr><C-z> pumvisible() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-z>"
