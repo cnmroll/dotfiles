@@ -1,4 +1,4 @@
-nnoremap <CR> A<CR><ESC>
+" nnoremap <CR> A<CR><ESC>
 
 " default keymap
 nnoremap <silent>p :set paste<CR>p:set nopaste<CR>
