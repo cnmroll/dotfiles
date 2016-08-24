@@ -49,6 +49,9 @@ if dein#load_state(s:plugin_dir)
 	" Ruby on Rails
 	call dein#add('tpope/vim-rails') " rails extension
 	call dein#add('https://github.com/tpope/vim-endwise') " ruby end auto
+	call dein#add('todesking/ruby_hl_lvar.vim', {
+				\ 'on_ft' : 'ruby'
+				\ }) " ruby local variable highlight
 
 	" HTML, CSS, SCSS
 	call dein#add('AtsushiM/sass-compile.vim') " sass -> css 自動コンパイル
