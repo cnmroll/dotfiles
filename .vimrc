@@ -65,6 +65,9 @@ if dein#load_state(s:plugin_dir)
 	" colorscheme
 	call dein#add('nanotech/jellybeans.vim') " jellybeans colorscheme
 
+	" git
+	call dein#add('airblade/vim-gitgutter') " git 左差分を表示
+
 	" vim拡張
 	call dein#add('kana/vim-textobj-user') " original テキストオブジェクト追加
 	call dein#add('kana/vim-textobj-entire') " 全体を表すテキストオブジェクトの追加
