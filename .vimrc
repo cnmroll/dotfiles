@@ -67,6 +67,7 @@ if dein#load_state(s:plugin_dir)
 
 	" git
 	call dein#add('airblade/vim-gitgutter') " git 左差分を表示
+	call dein#add('tpope/vim-fugitive') " git 操作
 
 	" vim拡張
 	call dein#add('kana/vim-textobj-user') " original テキストオブジェクト追加
