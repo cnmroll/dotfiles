@@ -97,6 +97,7 @@ if dein#load_state(s:plugin_dir)
 	call dein#add('scrooloose/syntastic') " シンタックスエラーチェック
 	call dein#add('tpope/vim-surround') " 指定文字で囲む
 	call dein#add('AndrewRadev/switch.vim') " 該当単語をトグル
+	call dein#add('violetyk/cake3.vim') " cake php
 
 	call dein#end()
 	call dein#save_state()
