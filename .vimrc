@@ -48,7 +48,9 @@ if dein#load_state(s:plugin_dir)
 
 	" Ruby on Rails
 	call dein#add('tpope/vim-rails') " rails extension
-	call dein#add('https://github.com/tpope/vim-endwise') " ruby end auto
+	call dein#add('https://github.com/tpope/vim-endwise', {
+				\ 'on_ft' : 'ruby'
+				\ }) " ruby end auto
 	call dein#add('todesking/ruby_hl_lvar.vim', {
 				\ 'on_ft' : 'ruby'
 				\ }) " ruby local variable highlight
@@ -72,9 +74,19 @@ if dein#load_state(s:plugin_dir)
 	call dein#add('airblade/vim-gitgutter') " git 左差分を表示
 	call dein#add('tpope/vim-fugitive') " git 操作
 
+	" text object
+	call dein#add('kana/vim-textobj-user') " add original テキストオブジェクト
+	call dein#add('kana/vim-textobj-entire') "add 全体を表すテキストオブジェクト
+	call dein#add('osyo-manga/vim-textobj-multitextobj') " textobj 共通command化
+	call dein#add('mattn/vim-textobj-url') " add url textobject
+	call dein#add('rhysd/vim-textobj-ruby', {
+				\ 'depends' : 'kana/vim-textobj-user'
+				\ }) " ruby block text object 対応 -> r
+	call dein#add('deris/vim-textobj-enclosedsyntax', {
+				\ 'depends' : 'kana/vim-textobj-user'
+				\ }) " Ruy and Perl syntax textobj 拡張
+
 	" vim拡張
-	call dein#add('kana/vim-textobj-user') " original テキストオブジェクト追加
-	call dein#add('kana/vim-textobj-entire') " 全体を表すテキストオブジェクトの追加
 	call dein#add('LeafCage/yankround.vim') " yank 管理
 	call dein#add('itchyny/lightline.vim') " ステータスライン強化
 	call dein#add('Shougo/context_filetype.vim') " カレント行のfiletype検出
