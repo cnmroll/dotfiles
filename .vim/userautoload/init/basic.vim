@@ -1,7 +1,7 @@
 set number
 set title
 set tabstop=2
-set cursorline
+" set cursorline
 set shiftwidth=2
 set autoindent
 set foldmethod=marker
@@ -27,6 +27,6 @@ syntax on
 
 " autocmd QuickFixCmdPost *grep* cwindow
 augroup QuickFixCmd
-  autocmd!
-  autocmd QuickFixCmdPost *grep* cwindow
+	autocmd!
+	autocmd QuickFixCmdPost *grep* cwindow
 augroup END
