@@ -1,0 +1,53 @@
+snippet html5
+    <!DOCTYPE html>
+    <html lang="ja">
+        <head>
+            <title>${2}</title>
+            <!-- 32以内 -->
+            <meta name="title" content="">
+            <!-- 120以内(~40大事) -->
+            <meta name="description" content="">
+            <!-- 5~6 -->
+            <meta name='keywords' content=''>
+
+    <!-------------------------------------------------- OGP -------------------------------------------------->
+            <meta property="og:type" content="website"/>
+            <meta property="og:image" content="ページで見せたい画像URL" />
+            <meta property="og:title" content="ページのタイトル" />
+            <meta property="og:description" content="ページの説明" />
+            <meta property="og:url" content="ページのURL" />
+            <meta property="og:site_name" content="サイト名" />
+            <meta property="og:locale" content="ja_JP" />
+
+    <!-------------------------------------------------- Facebook Card -------------------------------------------------->
+            <meta property="fb:admins" content="facebookのユーザーID fb:app_idで良い。" />
+            <meta property="fb:app_id" content="facebookのアプリID" />
+
+    <!-------------------------------------------------- Twitter Card -------------------------------------------------->
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@twitter_acount" />
+
+    <!-------------------------------------------------- Require JS -------------------------------------------------->
+            <script src="main.js"></script>
+
+    <!-------------------------------------------------- Require CSS -------------------------------------------------->
+            <link rel="stylesheet" href="main.css">
+        </head>
+        <body>
+            <div id="main">
+                <header>
+                </header>
+
+                <main role="main">
+                </main>
+                <p></p>
+                <div id="side_bar">
+                </div>
+
+                <footer>
+                </footer>
+            </div>
+        </body>
+    </html>
+
+
