@@ -71,3 +71,12 @@ xmap gp <Plug>(yankround-gp)
 nmap gP <Plug>(yankround-gP)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
+
+
+" /////////////////////////////////////////////////////////////////////////////////////////////////
+" // vim-textobj-multiextobj
+" /////////////////////////////////////////////////////////////////////////////////////////////////
+omap imb <Plug>(textobj-multitextobj-i)
+omap amb <Plug>(textobj-multitextobj-a)
+vmap imb <Plug>(textobj-multitextobj-i)
+vmap amb <Plug>(textobj-multitextobj-a)
