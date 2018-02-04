@@ -5,5 +5,5 @@ if [ "$SHLVL" = 1 ]; then
     [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
 fi
 
-# ssh-agent
+# ssh-agent setting
 eval `ssh-agent -k`
