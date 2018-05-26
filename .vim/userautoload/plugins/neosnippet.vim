@@ -8,7 +8,7 @@ endif
 " let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
 let g:neosnippet#snippets_directory='~/.vim/snippets/'
 " neocomplete のスペニット優先度
-call neocomplete#custom_source('neosnippet', 'rank',  400)
+" call neocomplete#custom_source('neosnippet', 'rank',  400)
 " neco-look の有効拡張子設定
 let g:neocomplete#text_mode_filetypes = {
             \ 'rst': 1,
