@@ -13,12 +13,12 @@ execute 'set runtimepath+=' . s:dein_dir
 
 " dein.vimがなければinstall`
 if !isdirectory(s:dein_dir)
-	call mkdir(s:dein_dir, 'p')
-	silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_dir)
+  call mkdir(s:dein_dir, 'p')
+  silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_dir)
 endif
 
 if dein#load_state(s:plugin_dir)
-	call dein#begin(s:plugin_dir)
+  call dein#begin(s:plugin_dir)
 
   let g:rc_dir    = expand("~/.vim/userautoload/dein_plugin/")
   let s:toml      = g:rc_dir . 'dein.toml'
@@ -28,9 +28,10 @@ if dein#load_state(s:plugin_dir)
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-	call dein#end()
-	call dein#save_state()
+  call dein#end()
+  call dein#save_state()
 endif
 
+set runtimepath+=~/.vim/
 runtime! userautoload/init/*.vim
 runtime! userautoload/plugins/*.vim
