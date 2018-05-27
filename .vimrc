@@ -20,7 +20,7 @@ endif
 if dein#load_state(s:plugin_dir)
 	call dein#begin(s:plugin_dir)
 
-  let g:rc_dir    = expand("~/.config/nvim/")
+  let g:rc_dir    = expand("~/.vim/userautoload/dein_plugin/")
   let s:toml      = g:rc_dir . 'dein.toml'
   let s:lazy_toml = g:rc_dir . 'dein_lazy.toml'
 
