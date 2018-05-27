@@ -1,0 +1,98 @@
+################################################################
+# Management & Interface
+################################################################
+[[plugins]]
+	repo = 'Shougo/dein.vim' # プラグイン管理
+
+[[plugins]]
+	repo = 'Shougo/unite.vim' # 統合ユーザインタフェース
+
+
+################################################################
+# Language
+################################################################
+[[plugins]]
+	# Ruby on Rails
+	repo = 'tpope/vim-rails' # rails extension
+
+[[plugins]]
+	# HTML, CSS, SCSS
+	repo = 'AtsushiM/sass-compile.vim' # sass -> css 自動コンパイル
+
+[[plugins]]
+	repo = 'mattn/emmet-vim' # html簡略化
+
+[[plugins]]
+	repo = 'tell-k/vim-browsereload-mac' # ブラウザ自動更新
+
+[[plugins]]
+	# syntax highlight
+	repo = 'slim-template/vim-slim' # slim syntax highlight
+
+[[plugins]]
+	repo = 'hail2u/vim-css3-syntax' # css3 色
+
+[[plugins]]
+	repo = 'jelera/vim-javascript-syntax' # js 色
+
+[[plugins]]
+	repo = 'othree/html5.vim' # html5 色
+
+
+################################################################
+# Git
+################################################################
+[[plugins]]
+	# git
+	repo = 'airblade/vim-gitgutter' # git 左差分を表示
+[[plugins]]
+	repo = 'tpope/vim-fugitive' # git 操作
+
+
+################################################################
+# Text Object
+################################################################
+[[plugins]]
+	repo = 'kana/vim-textobj-user' # add original テキストオブジェクト
+
+[[plugins]]
+	repo = 'kana/vim-textobj-entire' # add 全体を表すテキストオブジェクト
+
+[[plugins]]
+	repo = 'osyo-manga/vim-textobj-multitextobj' # textobj 共通command化
+
+[[plugins]]
+	repo = 'mattn/vim-textobj-url' # add url textobject
+
+################################################################
+# vim拡張
+################################################################
+[[plugins]]
+	repo = 'nanotech/jellybeans.vim' # jellybeans colorscheme
+
+[[plugins]]
+	repo = 'LeafCage/yankround.vim' # yank 管理
+
+[[plugins]]
+	repo = 'itchyny/lightline.vim' # ステータスライン強化
+
+[[plugins]]
+	repo = 'Shougo/context_filetype.vim' # カレント行のfiletype検出
+
+[[plugins]]
+	repo = 'nathanaelkane/vim-indent-guides' # indent可視化
+
+[[plugins]]
+	repo = 'bronson/vim-trailing-whitespace' # 文末のスペース検出
+
+[[plugins]]
+	repo = 'scrooloose/nerdtree' # tree file
+
+[[plugins]]
+	repo = 'scrooloose/syntastic' # シンタックスエラーチェック
+
+[[plugins]]
+	repo = 'tpope/vim-surround' # 指定文字で囲む
+
+[[plugins]]
+	repo = 'AndrewRadev/switch.vim' # 該当単語をトグル

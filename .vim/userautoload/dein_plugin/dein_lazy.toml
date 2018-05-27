@@ -1,0 +1,82 @@
+################################################################
+# Unite
+################################################################
+[[plugins]]
+	repo = 'ujihisa/unite-colorscheme' # colorscheme一覧 :Unite -auto-preview colorscheme
+	depends = 'Shougo/unite.vim'
+
+[[plugins]]
+	repo = 'Shougo/neomru.vim' # 最近開いたファイルの一覧表示 :Unite file_mru
+	depends = 'Shougo/unite.vim'
+
+
+################################################################
+# Deoplete
+################################################################
+[[plugins]]
+	repo = 'Shougo/deoplete.nvim'
+	if = 'has("nvim")'
+	on_i = 1
+
+[[plugins]]
+	repo = 'ujihisa/neco-look' # 英単語候補追加
+	depends = 'Shougo/deoplete.nvim'
+	on_i = 1
+
+[[plugins]]
+	repo = 'Shougo/neco-syntax' # 各filetype補完候補追加
+	depends = 'Shougo/deoplete.nvim'
+	on_i = 1
+
+[[plugins]]
+	repo = 'Shougo/neco-vim' # vimscript補完
+	depends = 'Shougo/deoplete.nvim'
+	on_i = 1
+
+[[plugins]]
+	repo = 'roxma/nvim-yarp'
+	if = '!has("nvim")'
+	depends = 'Shougo/deoplete.nvim'
+	on_i = 1
+
+[[plugins]]
+ 	repo = 'roxma/vim-hug-neovim-rpc'
+	if = '!has("nvim")'
+	depends = 'Shougo/deoplete.nvim'
+	on_i = 1
+
+
+################################################################
+# Text Object
+################################################################
+[[plugins]]
+	repo = 'rhysd/vim-textobj-ruby' # ruby block text object 対応 -> r
+	depends = 'kana/vim-textobj-user'
+	on_ft = ['ruby']
+
+[[plugins]]
+	repo = 'deris/vim-textobj-enclosedsyntax' # Ruy and Perl syntax textobj 拡張
+	depends = 'kana/vim-textobj-user'
+  on_ft = ['ruby']
+
+
+################################################################
+# Langage
+################################################################
+[[plugins]]
+	repo = 'https://github.com/tpope/vim-endwise' # ruby end auto
+ 	on_ft = ['ruby']
+
+[[plugins]]
+	repo = 'todesking/ruby_hl_lvar.vim' # ruby local variable highlight
+ 	on_ft = ['ruby']
+
+[[plugins]]
+	repo = 'vim-scripts/smarty-syntax' # smarty syntax highlight
+	on_ft = ['php']
+
+[[plugins]]
+	repo = 'vim-scripts/smarty-syntax' # smarty syntax highlight
+	on_ft = ['php']
+
+
