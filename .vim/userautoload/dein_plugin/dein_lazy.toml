@@ -14,11 +14,6 @@
 # Deoplete
 ################################################################
 [[plugins]]
-	repo = 'Shougo/deoplete.nvim'
-	if = 'has("nvim")'
-	on_i = 1
-
-[[plugins]]
 	repo = 'ujihisa/neco-look' # 英単語候補追加
 	depends = 'Shougo/deoplete.nvim'
 	on_i = 1

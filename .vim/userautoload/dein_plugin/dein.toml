@@ -96,3 +96,13 @@
 
 [[plugins]]
 	repo = 'AndrewRadev/switch.vim' # 該当単語をトグル
+
+################################################################
+# Deoplete
+################################################################
+[[plugins]]
+	repo = 'Shougo/deoplete.nvim'
+	hook_add = 'let g:deoplete#enable_at_startup = 1'
+	if = 'has("nvim")'
+	on_i = 1
+
