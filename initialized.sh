@@ -23,3 +23,7 @@ done
 
 mkdir -p ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
+
+if [ "$(uname)" == 'Darwin' ]; then
+	ln -s ~/.fonts/Ricty* ~/Library/Fonts
+fi
