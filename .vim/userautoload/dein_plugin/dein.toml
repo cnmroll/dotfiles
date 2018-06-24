@@ -38,6 +38,8 @@
 [[plugins]]
 	repo = 'othree/html5.vim' # html5 色
 
+[[plugins]]
+	repo = 'lumiliet/vim-twig' # hTwig 色
 
 ################################################################
 # Git
