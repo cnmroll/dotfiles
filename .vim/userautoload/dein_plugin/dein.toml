@@ -99,6 +99,18 @@
 [[plugins]]
 	repo = 'AndrewRadev/switch.vim' # 該当単語をトグル
 
+# [[plugins]]
+# repo = 'soramugi/auto-ctags.vim' # automatic ctags
+
+[[plugins]]
+	repo = 'majutsushi/tagbar' # displays tags in a window
+
+[[plugins]]
+	repo = 'jsfaint/gen_tags.vim' # displays tags in a window
+
+[[plugins]]
+	repo = 'lighttiger2505/gtags.vim' # displays tags in a window
+
 ################################################################
 # Deoplete
 ################################################################

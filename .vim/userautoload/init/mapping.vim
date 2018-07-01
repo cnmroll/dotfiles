@@ -50,3 +50,16 @@ omap imb <Plug>(textobj-multitextobj-i)
 omap amb <Plug>(textobj-multitextobj-a)
 vmap imb <Plug>(textobj-multitextobj-i)
 vmap amb <Plug>(textobj-multitextobj-a)
+
+
+" /////////////////////////////////////////////////////////////////////////////////////////////////
+" // Gtags
+" /////////////////////////////////////////////////////////////////////////////////////////////////
+
+nmap <C-q> <C-w><C-w><C-w>q
+nmap <C-g> :Gtags
+nmap <C-l> :Gtags -f %<CR>
+nmap <C-j> :GtagsCursor<CR>
+nmap <C-k> :Gtags -r <C-r><C-w><CR>
+nmap <C-n> :cn<CR>
+nmap <C-p> :cp<CR>
