@@ -93,8 +93,7 @@ repo = 'nanotech/jellybeans.vim' # jellybeans colorscheme
 [[plugins]]
 repo = 'LeafCage/yankround.vim' # yank 管理
 
-[[plugins]]
-repo = 'itchyny/lightline.vim' # ステータスライン強化
+[[plugins]] repo = 'itchyny/lightline.vim' # ステータスライン強化
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim' # カレント行のfiletype検出
@@ -117,6 +116,9 @@ repo = 'tpope/vim-surround' # 指定文字で囲む
 [[plugins]]
 repo = 'AndrewRadev/switch.vim' # 該当単語をトグル
 
+################################################################
+# Gtags
+################################################################
 # [[plugins]]
 # repo = 'soramugi/auto-ctags.vim' # automatic ctags
 
