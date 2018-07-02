@@ -13,16 +13,16 @@ do
 		if [ $base_name = $ignore_file ]; then
 			check=1
 			break
-		fi	
+		fi
 	done
 	if [ $check != 1 ]; then
-		ln -s $file $home_dir
+		ln -snf $file $home_dir
 	fi
 	check=0
 done
 
 mkdir -p ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+ln -snf ~/.vimrc ~/.config/nvim/init.vim
 
 if [ "$(uname)" == 'Darwin' ]; then
 	ln -s ~/.fonts/Ricty* ~/Library/Fonts
