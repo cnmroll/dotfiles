@@ -124,8 +124,22 @@ repo = 'AndrewRadev/switch.vim' # 該当単語をトグル
 repo = 'majutsushi/tagbar' # displays tags in a window
 
 [[plugins]]
+repo = 'jsfaint/gen_tags.vim' # displays tags in a window
 
 [[plugins]]
+repo = 'lighttiger2505/gtags.vim' # displays tags in a window
+
+################################################################
+# asynchronous
+################################################################
+[[plugins]]
+repo = 'Shougo/vimproc' # asynchronous execution
+
+[[plugins]]
+repo = 'thinca/vim-quickrun' # buffer cmd run
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim' # buffer cmd run
 
 ################################################################
 # Deoplete
