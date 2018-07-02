@@ -3,8 +3,8 @@ bindkey -v
 
 # zplugが無ければgitからclone
 if [[ ! -d ~/.zplug ]];then
-  git clone https://github.com/zplug/zplug ~/.zplug
- fi
+	git clone https://github.com/zplug/zplug ~/.zplug
+fi
 
 # zplug
 source ~/.zplug/init.zsh
@@ -46,18 +46,18 @@ zplug load
 autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
-  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-    bindkey -M $m $c select-bracketed
-  done
+	for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+		bindkey -M $m $c select-bracketed
+	done
 done
 
 # select-quoted
 autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
-  for c in {a,i}{\',\",\`}; do
-    bindkey -M $m $c select-quoted
-  done
+	for c in {a,i}{\',\",\`}; do
+		bindkey -M $m $c select-quoted
+	done
 done
 
 # vim-surround
@@ -72,20 +72,20 @@ bindkey -M visual S add-surround
 
 
 function zle-line-init zle-keymap-select {
-    #VIM_NORMAL="%K{146}%F{black}⮀%k%f%K{146}%F{black} % NORMAL %k%f%K{black}%F{146}⮀%k%f"
-    #VIM_INSERT="%K{149}%F{black}⮀%k%f%K{149}%F{black} % INSERT %k%f%K{black}%F{149}⮀%k%f"
-    #VIM_VISUAL="%K{217}%F{black}⮀%k%f%K{217}%F{black} % VISUAL %k%f%K{black}%F{217}⮀%k%f"
-    VIM_NORMAL="%F{146}⮂%K{146}%F{black} NORMAL "
-    VIM_INSERT="%F{149}⮂%K{149}%F{black} INSERT "
-    VIM_VISUAL="%F{217}⮂%K{217}%F{black} VISUAL "
-		# %F or %f{数値} 後続色の指定
-		# %K or %k{数値} 後続背景色の指定
-    #VIM_VISUAL="%F{217}⮂%K{217}%k%f%K{217}%F{black} % VISUAL "
-    #RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
-		#RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/${(main|viins)/$VIM_INSERT}/${(vivis|vivli)/$VIM_VISUAL}}"
-		RPS1="${${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}/(vivis|vivli)/$VIM_VISUAL}"
-    RPS2=$RPS1
-    zle reset-prompt
+#VIM_NORMAL="%K{146}%F{black}⮀%k%f%K{146}%F{black} % NORMAL %k%f%K{black}%F{146}⮀%k%f"
+#VIM_INSERT="%K{149}%F{black}⮀%k%f%K{149}%F{black} % INSERT %k%f%K{black}%F{149}⮀%k%f"
+#VIM_VISUAL="%K{217}%F{black}⮀%k%f%K{217}%F{black} % VISUAL %k%f%K{black}%F{217}⮀%k%f"
+VIM_NORMAL="%F{146}⮂%K{146}%F{black} NORMAL "
+VIM_INSERT="%F{149}⮂%K{149}%F{black} INSERT "
+VIM_VISUAL="%F{217}⮂%K{217}%F{black} VISUAL "
+# %F or %f{数値} 後続色の指定
+# %K or %k{数値} 後続背景色の指定
+#VIM_VISUAL="%F{217}⮂%K{217}%k%f%K{217}%F{black} % VISUAL "
+#RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
+#RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/${(main|viins)/$VIM_INSERT}/${(vivis|vivli)/$VIM_VISUAL}}"
+RPS1="${${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}/(vivis|vivli)/$VIM_VISUAL}"
+RPS2=$RPS1
+zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
@@ -221,3 +221,12 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 alias g='cd $(ghq root)/$(ghq list | peco)'
+
+function peco-history-selection() {
+	BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+	CURSOR=$#BUFFER
+	zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^h' peco-history-selection
