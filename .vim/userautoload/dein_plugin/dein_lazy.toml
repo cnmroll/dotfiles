@@ -2,76 +2,83 @@
 # Unite
 ################################################################
 [[plugins]]
-	repo = 'ujihisa/unite-colorscheme' # colorscheme一覧 :Unite -auto-preview colorscheme
-	depends = 'Shougo/unite.vim'
+repo = 'Shougo/denite.nvim'
+if = 'has("nvim")'
+#hook_add = 'source ~/.vim/userautoload/plugins/denite.vim'
 
 [[plugins]]
-	repo = 'Shougo/neomru.vim' # 最近開いたファイルの一覧表示 :Unite file_mru
-	depends = 'Shougo/unite.vim'
+repo = 'ujihisa/unite-colorscheme' # colorscheme一覧 :Unite -auto-preview colorscheme
+on_cmd = ['denite']
+depends = ['denite']
 
+[[plugins]]
+repo = 'Shougo/neomru.vim' # 最近開いたファイルの一覧表示 :Unite file_mru
+on_source = ['denite']
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_source = ['denite']
+on_path = '.*'
+on_i = 1
+
+[[plugins]]
+repo = 'osyo-manga/unite-quickfix' # buffer cmd run
+on_source = ['denite']
+depends = ['denite']
 
 ################################################################
 # Deoplete
 ################################################################
 [[plugins]]
-	repo = 'ujihisa/neco-look' # 英単語候補追加
-	depends = 'Shougo/deoplete.nvim'
-	on_i = 1
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+on_i = 1
 
 [[plugins]]
-	repo = 'Shougo/neco-syntax' # 各filetype補完候補追加
-	depends = 'Shougo/deoplete.nvim'
-	on_i = 1
+repo = 'ujihisa/neco-look' # 英単語候補追加
+if = 'has("look")'
+on_source = ['deoplete']
+on_i = 1
 
 [[plugins]]
-	repo = 'Shougo/neco-vim' # vimscript補完
-	depends = 'Shougo/deoplete.nvim'
-	on_i = 1
+repo = 'Shougo/neco-syntax' # 各filetype補完候補追加
+on_source = ['deoplete']
+on_i = 1
 
 [[plugins]]
-	repo = 'roxma/nvim-yarp'
-	if = '!has("nvim")'
-	depends = 'Shougo/deoplete.nvim'
-	on_i = 1
-
-[[plugins]]
- 	repo = 'roxma/vim-hug-neovim-rpc'
-	if = '!has("nvim")'
-	depends = 'Shougo/deoplete.nvim'
-	on_i = 1
-
+repo = 'Shougo/neco-vim' # vimscript補完
+on_source = ['deoplete']
+on_i = 1
 
 ################################################################
 # Text Object
 ################################################################
 [[plugins]]
-	repo = 'rhysd/vim-textobj-ruby' # ruby block text object 対応 -> r
-	depends = 'kana/vim-textobj-user'
-	on_ft = ['ruby']
+repo = 'rhysd/vim-textobj-ruby' # ruby block text object 対応 -> r
+depends = ['vim-textobj-user']
+on_ft = ['ruby']
 
 [[plugins]]
-	repo = 'deris/vim-textobj-enclosedsyntax' # Ruy and Perl syntax textobj 拡張
-	depends = 'kana/vim-textobj-user'
-  on_ft = ['ruby']
-
+repo = 'deris/vim-textobj-enclosedsyntax' # Ruy and Perl syntax textobj 拡張
+depends = ['vim-textobj-user']
+on_ft = ['ruby']
 
 ################################################################
 # Langage
 ################################################################
 [[plugins]]
-	repo = 'https://github.com/tpope/vim-endwise' # ruby end auto
- 	on_ft = ['ruby']
+repo = 'https://github.com/tpope/vim-endwise' # ruby end auto
+on_ft = ['ruby']
 
 [[plugins]]
-	repo = 'todesking/ruby_hl_lvar.vim' # ruby local variable highlight
- 	on_ft = ['ruby']
+repo = 'todesking/ruby_hl_lvar.vim' # ruby local variable highlight
+on_ft = ['ruby']
 
 [[plugins]]
-	repo = 'vim-scripts/smarty-syntax' # smarty syntax highlight
-	on_ft = ['php']
+repo = 'vim-scripts/smarty-syntax' # smarty syntax highlight
+on_ft = ['php']
 
 [[plugins]]
-	repo = 'vim-scripts/smarty-syntax' # smarty syntax highlight
-	on_ft = ['php']
-
-
+repo = 'vim-scripts/smarty-syntax' # smarty syntax highlight
+on_ft = ['php']
