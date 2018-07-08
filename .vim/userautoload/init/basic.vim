@@ -1,16 +1,15 @@
 set number
 set title
+set expandtab
 set tabstop=2
-" set cursorline
 set shiftwidth=2
 set autoindent
-set foldmethod=marker
 set smartindent
+set foldmethod=marker
 set hidden
 set whichwrap=b,s,h,l,<,>,[,]
 set showmatch
 set clipboard=unnamed,unnamedplus
-set laststatus=2
 set t_Co=256
 set wildmenu
 set wildmode=full
