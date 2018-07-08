@@ -2,7 +2,7 @@
 source $VIMRUNTIME/macros/matchit.vim
 
 augroup PluginInstall autocmd!
-	autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
 augroup END
 
 " plugin install directory

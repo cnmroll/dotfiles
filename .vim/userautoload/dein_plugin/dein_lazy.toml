@@ -82,3 +82,10 @@ on_ft = ['php']
 [[plugins]]
 repo = 'vim-scripts/smarty-syntax' # smarty syntax highlight
 on_ft = ['php']
+
+################################################################
+# Vim拡張
+################################################################
+[[plugins]]
+repo = 'cohama/lexima.vim' # Insert or delete brackets, parens, quotes in pair.
+on_i = 1
