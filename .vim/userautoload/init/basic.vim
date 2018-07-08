@@ -33,6 +33,20 @@ syntax on
 
 " autocmd QuickFixCmdPost *grep* cwindow
 augroup QuickFixCmd
-	autocmd!
-	autocmd QuickFixCmdPost *grep* cwindow
+  autocmd!
+  autocmd QuickFixCmdPost *grep* cwindow
 augroup END
+
+" 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
+if &term =~ "xterm"
+  let &t_SI .= "\e[?2004h"
+  let &t_EI .= "\e[?2004l"
+  let &pastetoggle = "\e[201~"
+
+  function XTermPasteBegin(ret)
+    set paste
+    return a:ret
+  endfunction
+
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
