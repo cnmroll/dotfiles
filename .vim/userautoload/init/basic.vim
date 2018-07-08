@@ -19,6 +19,7 @@ set encoding=utf-8
 scriptencoding utf-8
 set laststatus=2
 set updatetime=250
+set cursorline " カーソルラインをハイライト
 
 " search
 set incsearch " インクリメンタルサーチ. １文字入力毎に検索を行う
