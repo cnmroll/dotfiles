@@ -4,7 +4,21 @@
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = 'has("nvim")'
-#hook_add = 'source ~/.vim/userautoload/plugins/denite.vim'
+hook_post_source = '''
+call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
+call denite#custom#map('normal', "t", '<denite:do_action:tabopen>')
+call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
+call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
+
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', '-f', '--hidden'])
+call denite#custom#var('grep', 'command', ['ag', '--follow', '--hidden'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+'''
 
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme' # colorscheme一覧 :Unite -auto-preview colorscheme
