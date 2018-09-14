@@ -12,10 +12,6 @@ repo = 'Shougo/dein.vim' # プラグイン管理
 repo = 'tpope/vim-rails' # rails extension
 
 [[plugins]]
-# HTML, CSS, SCSS
-repo = 'AtsushiM/sass-compile.vim' # sass -> css 自動コンパイル
-
-[[plugins]]
 repo = 'mattn/emmet-vim' # html簡略化
 
 [[plugins]]
@@ -84,8 +80,11 @@ repo = 'bronson/vim-trailing-whitespace' # 文末のスペース検出
 [[plugins]]
 repo = 'scrooloose/nerdtree' # tree file
 
+# [[plugins]]
+# repo = 'vim-syntastic/syntastic' # シンタックスエラーチェック
+
 [[plugins]]
-repo = 'scrooloose/syntastic' # シンタックスエラーチェック
+repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'tpope/vim-surround' # 指定文字で囲む
