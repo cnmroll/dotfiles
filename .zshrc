@@ -3,7 +3,7 @@ bindkey -v
 
 # zplugが無ければgitからclone
 if [[ ! -d ~/.zplug ]];then
-	git clone https://github.com/zplug/zplug ~/.zplug
+  git clone https://github.com/zplug/zplug ~/.zplug
 fi
 
 # zplug
@@ -33,10 +33,10 @@ zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 #未インストール項目をインストールする
 if ! zplug check --verbose; then
-	printf "Install? [y/N]: "
-	if read -q; then
-		echo; zplug install
-	fi
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
 fi
 
 # コマンドをリンクして、PATH に追加し、プラグインは読み込む
@@ -46,18 +46,18 @@ zplug load
 autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
-	for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-		bindkey -M $m $c select-bracketed
-	done
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $m $c select-bracketed
+  done
 done
 
 # select-quoted
 autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
-	for c in {a,i}{\',\",\`}; do
-		bindkey -M $m $c select-quoted
-	done
+  for c in {a,i}{\',\",\`}; do
+    bindkey -M $m $c select-quoted
+  done
 done
 
 # vim-surround
@@ -223,10 +223,16 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 alias g='cd $(ghq root)/$(ghq list | peco)'
 
 function peco-history-selection() {
-	BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-	CURSOR=$#BUFFER
-	zle reset-prompt
+  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
 }
 
 zle -N peco-history-selection
 bindkey '^h' peco-history-selection
+
+## Go 環境設定
+if [ -x "`which go`" ]; then
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+fi
